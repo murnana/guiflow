@@ -1,7 +1,5 @@
-//process.env.NODE_PATH = "./";
 if (process.platform == "win32") {
-    //modulePaths.push();
-    var p = process.resourcesPath; //+ "\\app";
+    var p = process.resourcesPath;
     console.log(p);
     module.paths.unshift(p + "\\app");
     module.paths.unshift(p + "\\app.asar");
@@ -24,13 +22,13 @@ var nodeModule = function() {
 
 };
 var ipcRenderer = require("electron").ipcRenderer;
-var remote = require('electron').remote;
+var remote = require("electron").remote;
 var fs = require("fs");
 var flumine = require("flumine");
-var $ = remote.require("./js/jquery-2.1.4.min");//require(resolvePath("./js/jquery-2.1.4.min"));
+var $ = require("jquery");
 var uiflow = remote.require("./app/uiflow");
-var editor = remote.require("./js/editor");//require(resolvePath("./js/editor"));
-var diagram = remote.require("./js/diagram");//require(resolvePath("./js/diagram"));
+var editor  = require("./js/editor");
+var diagram = require("./js/diagram");
 
 [
     "open",
@@ -50,10 +48,10 @@ var sendToEditor = function(channel) {
     return editor[channel];
 };
 
-var clipboard = require("clipboard");
-var nativeImage = require("native-image");
+var clipboard = require("electron").clipboard;
+var nativeImage = require("electron").nativeImage;
 
-var Menu = remote.require('menu');
+var Menu = remote.Menu;
 var menu = Menu.buildFromTemplate([{
     label: "Undo",
     accelerator: 'CmdOrCtrl+Z',
