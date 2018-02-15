@@ -24,13 +24,13 @@ var nodeModule = function() {
 
 };
 var ipcRenderer = require("electron").ipcRenderer;
-var remote = require("remote");
+var remote = require('electron').remote;
 var fs = require("fs");
 var flumine = require("flumine");
-var $ = require(resolvePath("./js/jquery-2.1.4.min"));
+var $ = remote.require("./js/jquery-2.1.4.min");//require(resolvePath("./js/jquery-2.1.4.min"));
 var uiflow = remote.require("./app/uiflow");
-var editor = require(resolvePath("./js/editor"));
-var diagram = require(resolvePath("./js/diagram"));
+var editor = remote.require("./js/editor");//require(resolvePath("./js/editor"));
+var diagram = remote.require("./js/diagram");//require(resolvePath("./js/diagram"));
 
 [
     "open",
