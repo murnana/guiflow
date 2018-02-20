@@ -1,4 +1,3 @@
-var fs = require("fs");
 var electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
@@ -161,7 +160,7 @@ var createWindow = function(fileName) {
 };
 
 app.on('ready', function() {
-    var fileName = process.argv[2];
+    var fileName = process.argv[2].search(/--/) >= 0 ? null : process.argv[2];
     var firstWindow = createWindow(fileName);
     var builtMenu = Menu.buildFromTemplate([
         mainMenu, fileMenu, editMenu
