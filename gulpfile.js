@@ -3,7 +3,7 @@ var zip = require("gulp-zip");
 var runseq = require("run-sequence");
 var packager = require("electron-packager");
 
-var electronVersion = "0.36.12";
+var electronVersion = "1.7.11";
 var del = require('del');
 gulp.task('clean', function(done) {
     return del(['package'], function() {
@@ -19,8 +19,7 @@ gulp.task("package:win32", function(done) {
         arch: 'x64',
         platform: platform,
         out: 'package/' + platform,
-        version: electronVersion,
-        icon: "icon/guiflow.ico",
+        electronVersion: electronVersion,
         ignore: "/package($|/)",
         asar: true,
     }, function(err) {
@@ -39,7 +38,7 @@ gulp.task("package:linux", function(done) {
         arch: 'x64',
         platform: platform,
         out: 'package/' + platform,
-        version: electronVersion,
+        electronVersion: electronVersion,
         ignore: "/package($|/)",
         asar: true,
     }, function(err) {
