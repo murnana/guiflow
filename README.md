@@ -1,9 +1,9 @@
 # guiflow - a text editor for ui flows diagram
 
-GUI Flowを書く為のツールです。
-Node.js, Electronベース
-forked from [hirokidaichi/guiflow](https://github.com/hirokidaichi/guiflow)
-やりたいほーだい
+GUI Flowを書く為のツールです。  
+Node.js, Electronベース  
+forked from [hirokidaichi/guiflow](https://github.com/hirokidaichi/guiflow)  
+やりたいほーだい  
 
 
 
