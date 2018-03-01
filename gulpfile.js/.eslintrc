@@ -1,0 +1,24 @@
+{
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "extends": "eslint:all",
+    "rules": {
+        "strict":["off", "global"],
+        "no-multi-spaces":"off",
+        "new-cap":"off",
+        "one-var":["error", {
+            "var": "always",
+            "const": "never",
+            "initialized": "always",
+            "uninitialized": "never"
+        }]
+    }
+}

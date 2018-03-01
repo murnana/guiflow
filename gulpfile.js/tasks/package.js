@@ -1,12 +1,19 @@
-var gulp = require('gulp');
-var zip = require("gulp-zip");
-var runseq = require("run-sequence");
-var packager = require("electron-packager");
+"use strict";
+const
+    del      = require("del"),
+    gulp     = require("gulp"),
+    packager = require("electron-packager"),
+    runseq   = require("run-sequence"),
+    zip      = require("gulp-zip");
 
-var electronVersion = "1.7.11";
-var del = require('del');
-gulp.task('clean', function(done) {
-    return del(['package'], function() {
+/**
+ * @todo electronVersionはpackage.jsonから取ってこれないだろうか
+ */
+const
+    electronVersion = "1.7.11";
+
+gulp.task("clean", function(done) {
+    return del(["package"], function() {
         done();
     });
 });
@@ -14,11 +21,11 @@ gulp.task('clean', function(done) {
 gulp.task("package:win32", function(done) {
     var platform = "win32";
     return packager({
-        dir: '.',
-        name: '',
-        arch: 'x64',
+        dir: ".",
+        name: "",
+        arch: "x64",
         platform: platform,
-        out: 'package/' + platform,
+        out: "package/" + platform,
         electronVersion: electronVersion,
         ignore: "/package($|/)",
         asar: true,
@@ -33,11 +40,11 @@ gulp.task("package:win32", function(done) {
 gulp.task("package:linux", function(done) {
     var platform = "linux";
     return packager({
-        dir: '.',
-        name: '',
-        arch: 'x64',
+        dir: ".",
+        name: "",
+        arch: "x64",
         platform: platform,
-        out: 'package/' + platform,
+        out: "package/" + platform,
         electronVersion: electronVersion,
         ignore: "/package($|/)",
         asar: true,
@@ -50,11 +57,11 @@ gulp.task("package:linux", function(done) {
 gulp.task("package:darwin", function(done) {
     var platform = "darwin";
     return packager({
-        dir: '.',
-        name: '',
-        arch: 'x64',
+        dir: ".",
+        name: "",
+        arch: "x64",
         platform: platform,
-        out: 'package/' + platform,
+        out: "package/" + platform,
         version: electronVersion,
         ignore: "/package($|/)",
         icon: "icon/gui_flow_icon.icons",
@@ -69,11 +76,11 @@ gulp.task("package:darwin", function(done) {
 gulp.task("package:darwin", function(done) {
     var platform = "darwin";
     return packager({
-        dir: '.',
-        name: '',
-        arch: 'x64',
+        dir: ".",
+        name: "",
+        arch: "x64",
         platform: platform,
-        out: 'package/' + platform,
+        out: "package/" + platform,
         version: electronVersion,
         ignore: "/package($|/)",
         icon: "icon/gui_flow_icon.icons",
@@ -82,7 +89,7 @@ gulp.task("package:darwin", function(done) {
         done();
     });
 });
-var shell = require('gulp-shell');
+var shell = require("gulp-shell");
 
 gulp.task("zip:darwin", shell.task([
     "echo hello",
@@ -103,11 +110,11 @@ gulp.task("zip:linux", shell.task([
 ], {
     cwd: "./package/linux/"
 }));
-gulp.task('package', function(cb) {
+gulp.task("package", function(cb) {
     runseq(
-        'clean', [
-            'package:win32',
-            'package:darwin',
-            'package:linux'
+        "clean", [
+            "package:win32",
+            "package:darwin",
+            "package:linux"
         ], cb);
 });
