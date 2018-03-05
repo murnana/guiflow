@@ -13,6 +13,16 @@
             },
             "script": "start",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "package",
+            "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "zip",
+            "problemMatcher": []
         }
     ]
 }

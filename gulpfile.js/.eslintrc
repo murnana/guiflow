@@ -11,14 +11,8 @@
     },
     "extends": "eslint:all",
     "rules": {
-        "strict":["off", "global"],
-        "no-multi-spaces":"off",
-        "new-cap":"off",
-        "one-var":["error", {
-            "var": "always",
-            "const": "never",
-            "initialized": "always",
-            "uninitialized": "never"
-        }]
+        "one-var":["error", {"separateRequires": true}],
+        "no-sync":["error", { "allowAtRootLevel": true }],
+        "no-magic-numbers":["error", {"ignore": [0]}]
     }
 }
